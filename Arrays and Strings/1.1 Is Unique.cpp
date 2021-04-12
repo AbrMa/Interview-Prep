@@ -3,7 +3,13 @@
 
 using namespace std;
 
-bool has_all_unique(string s) {
+bool has_all_unique(string& s) {
+	int ascii[256] = {0};
+	for (char c : s) {
+		if (ascii[c])
+			return false;
+		ascii[c]++;
+	}
 	return true;
 }
 
