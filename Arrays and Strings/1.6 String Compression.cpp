@@ -13,7 +13,9 @@ string string_compression (string& str) {
 			else break;
 		}
 		compressed_string.push_back(str[i]);
-		compressed_string.append(to_string(repetitions));
+		string rep = to_string(repetitions);
+		for (char c : rep)
+			compressed_string.push_back(c);
 	}
 	if (compressed_string.size() < str.size())
 		return compressed_string;
