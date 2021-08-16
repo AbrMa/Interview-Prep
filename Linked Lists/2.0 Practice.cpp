@@ -30,6 +30,22 @@ Node* insert_node_nth(Node *head, int x, int n) {
 	return head;
 }
 
+Node* reverse_list(Node *head) {
+	Node* prev; 
+	Node* current;
+	Node* next;
+	current = head;
+	prev = NULL;
+	while (current != NULL) {
+		next = current -> next;	
+		current -> next = prev;
+		prev = current;
+		current = next;
+	}
+	head = prev;
+	return head;	
+}	
+
 void print_list(Node* print_node) {
 	while (print_node) {
 		cout << print_node -> data << " ";
@@ -46,6 +62,8 @@ int main () {
 	head = insert_node_beg(head, 3);
 	head = insert_node_beg(head, 4);
 	print_list(head);
-	head = insert_node_nth(head, 9, 4);
+	head = reverse_list(head);
 	print_list(head);
+//	head = insert_node_nth(head, 9, 4);
+//	print_list(head);
 }
